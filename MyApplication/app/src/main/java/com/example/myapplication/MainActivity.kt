@@ -23,30 +23,26 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.button1.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
+        val buttons = listOf(
+            binding.button1,
+            binding.button2,
+            binding.button3,
+            binding.button4,
+            binding.button5
+        )
+
+        for(btn in buttons){
+            btn.setOnClickListener{
+                navigateToAnotherActivity(btn.text.toString())
+            }
         }
 
-        binding.button2.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
+    }
 
-        binding.button3.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
+    private fun navigateToAnotherActivity(buttonText: String){
+        val intent = Intent(this, MainActivity2::class.java).apply{
+            putExtra("BUTTON_TEXT", buttonText)
         }
-
-        binding.button4.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
-
-        binding.button5.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
-
+        startActivity(intent)
     }
 }
