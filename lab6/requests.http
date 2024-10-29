@@ -1,0 +1,27 @@
+### Create a new post
+POST http://localhost:8080/posts
+Content-Type: application/json
+
+{
+  "text": "This is a sample post!"
+}
+
+### Get all posts
+GET http://localhost:8080/posts
+
+### Get a specific post by ID
+GET http://localhost:8080/posts/1
+
+### Get posts based on timestamp
+GET http://localhost:8080/posts/time/1730175071915
+
+### Update a post by ID
+PUT http://localhost:8080/posts/1/update
+Content-Type: application/json
+
+{
+  "text": "This is an updated post!"
+}
+
+### Delete a post by ID (replace `{id}` with an actual ID)
+DELETE http://localhost:8080/posts/3/delete
